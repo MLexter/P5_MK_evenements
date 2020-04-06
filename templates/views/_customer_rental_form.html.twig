@@ -1,0 +1,39 @@
+{{ form_start(rentalForm, {'action': path('rental_validation') }) }}
+
+<div class="row">
+    <div class="col-6">
+        {{ form_row(rentalForm.lastName) }}
+    </div>
+    <div class="col-6">
+        {{ form_row(rentalForm.firstName) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        {{ form_row(rentalForm.phoneNumber) }}
+    </div>
+    <div class="col-6">
+        {{ form_row(rentalForm.email) }}
+    </div>
+</div>
+
+    {{ form_row(rentalForm.customerMessage) }}
+
+<div class="row date_rental_form_elements">
+    <div class="col-3 date_form_element">
+        {{ form_row(rentalForm.rentalDate) }}
+    </div>
+
+    <div class="rental_days_form_element">
+        {{ form_row(rentalForm.NbOfDays, {attr: 
+            {class: 
+                'col-5'
+            }}) }}
+
+    </div>
+
+</div>
+<div class="text-center" id="send_rental_form_btn">
+    <button class="btn valid_btn" type="submit">Envoyer la demande</button>
+</div>
+{{ form_end(rentalForm) }}

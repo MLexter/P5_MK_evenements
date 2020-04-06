@@ -1,0 +1,36 @@
+<div id="admin_container_options">
+    <a href="{{ path('admin') }}">
+        <h1 id="admin_panel_title">MENU</h1>
+    </a>
+
+    <div id="admin_options_container">
+
+        <a class="admin_link" href="{{ path('catalogManagement') }}">
+            <h3 class="inline_admin_link">
+                <span class="admin_panel_link">
+                    <i class="fas fa-photo-video"></i>
+                </span>
+                Gestion du catalogue
+            </h2>
+        </a>
+
+        <a class="admin_link" href="{{ path('manage_gallery') }}">
+            <h3 class="inline_admin_link">
+                <span class="admin_panel_link">
+                    <i class="fas fa-portrait"></i>
+                </span>
+                Gestion de la galerie
+            </h2>
+        </a>
+
+        <a class="admin_link" href="{{ path('manage_user') }}">
+            <h3 class="inline_admin_link">
+                <span class="admin_panel_link">
+                    <i class="fas fa-portrait"></i>
+                </span>
+                Gestion du mot de passe
+            </h2>
+        </a>
+
+    </div>
+</div>

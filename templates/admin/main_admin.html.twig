@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENTS - ADMIN{% endblock %}
+
+{% block body %}
+<div class="page_title_container text-center">
+    <div class="jumbotron jumbo_admin">
+        <h1 class="jumbotron_title">ESPACE ADMIN</h1>
+    </div>
+</div>
+
+
+{% include 'admin/_admin_panel.html.twig' %}
+
+<div class="d-flex justify-content-center align-items-center" id="main_admin_container"> 
+    
+        <div class="main_admin_text_container">
+            <h1 class="text-center main_admind_title">BIENVENUE !</h1>
+            <br>
+            <p class="text-center page_description">La gestion du site se fait simplement, grâce au menu affiché en permanence en haut de page.</p>
+            <br>
+            <p class="text-center page_description">Pour gérer les articles du catalogue, cliquez sur <a href="{{ path('catalogManagement') }}">Gestion du catalogue</a>.</p>
+            <p class="text-center page_description">Pour gérer galerie photos, cliquez sur <a href="{{ path('manage_gallery') }}">Gérer la galerie</a>.</p>
+            <p class="text-center page_description">Pour changer de mot de passe, cliquez sur <a href="{{ path('manage_user') }}">Gestion du mot de passe</a>.</p>
+            <br>
+            <p class="text-center page_description">Vous pouvez revenir à cette page principale en cliquant sur 'MENU' ou sur le raccourci 'ADMIN' sur la partie basse du site.</p>
+    
+        </div>
+
+</div>
+
+
+{% endblock %}

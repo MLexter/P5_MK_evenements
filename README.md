@@ -1,1 +1,1 @@
-P5_MK_Evenements
+mkevents-symfony

@@ -1,0 +1,78 @@
+{% extends('base.html.twig') %}
+
+{% form_theme addArticleForm 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}MK EVENTS - ADMIN: Ajouter un article{% endblock %}
+
+{% block body %}
+
+<div class="page_title_container text-center">
+    <div class="jumbotron jumbo_admin">
+        {% if editMode %}
+            <h1 class="jumbotron_title">MODIFIER UN ARTICLE</h1>
+        {% else %}
+        <h1 class="jumbotron_title">AJOUTER UN ARTICLE</h1>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'admin/_admin_panel.html.twig' %}
+
+
+
+<div class="mt-4 container" id="container_page">
+    <div class="page_title_container text-center">
+        <div class="container_text_admin">
+            {% if editMode %}
+                    <p class="text-center page_description">Modifiez ici les informations concernant cet article pour le mettre à jour.</p>
+            {% else %}
+                    <p class="text-center page_description">Remplissez les informations ci-dessous pour créer un nouvel article et l'ajouter au catalogue.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="edit_article_container">
+    
+        {% if editMode %}
+            <div class="mt-4 text-center container image_preview_container">
+                <img class="image_preview" src="{{ asset('uploads/') ~ image_path }}" alt="">
+            </div>
+    
+        {% endif %}
+  
+    
+        {{ form_start(addArticleForm) }}
+    
+        {{ form_row(addArticleForm.title,   { 'attr': { 'placeholder': "Entrez un nom..."}}) }}
+        {{ form_row(addArticleForm.category) }}
+        {{ form_row(addArticleForm.content, { 'attr': { 'placeholder': "Entrez du contenu..."}}) }}
+        {{ form_row(addArticleForm.price,   { 'attr': { 'placeholder': "Entrez un prix..."}}) }}
+       
+        {% if image_path | length > 0 %}
+    
+            {{ form_row(addArticleForm.image, {'attr': 
+                {'value': image_path }}
+            )}}
+        {% else %}
+    
+            {{ form_row(addArticleForm.image) }}
+    
+        {% endif %}
+
+        <div class="text-center mt-4" id="update_btn_container">
+            <button type="submit" class="btn btn-update">
+                {% if editMode %}
+                    Mettre à jour
+                {% else %}
+                    Ajouter au catalogue
+                {% endif %}
+            </button>
+        </div>
+    
+        {{ form_end(addArticleForm) }}
+    
+    </div>
+
+</div>
+
+{% endblock %}

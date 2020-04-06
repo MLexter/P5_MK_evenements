@@ -1,0 +1,92 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MK EVENEMENTS - Nouvelle demande{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/mkevents.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<div id="logo_brand">
+    <img id="brand_logo" src="{{ logo }}" alt="Logo MK Evenements">
+</div>
+
+<div class="container">
+    <h1 class="text-center">Nouvelle demande</h1>
+    <br>
+    <p>Nouvelle demande de renseignements:</p>
+    
+
+<table class="table table-bordered">
+    <tr>
+        <th scope="col" class="font-weight-bold">Nom :</th>
+        <td scope="col">{{ formData.last_name }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Prénom :</th>
+        <td scope="col">{{ formData.first_name }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Tel :</th>
+        <td scope="col">{{ formData.phoneNumber }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Email :</th>
+        <td scope="col">{{ formData.email }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Type d'événement :</th>
+        <td scope="col">{{ formData.event_type }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Date de l'événement :</th>
+        <td scope="col">{{ formData.event_date.day }}/{{ formData.event_date.month }}/{{ formData.event_date.year }}</td>
+    </tr>
+    <tr>
+        <th scope="col" class="font-weight-bold">Nom du lieu :</th>
+        <td scope="col">{{ formData.location_name }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Nombre d'invités :</th>
+        <td scope="col">{{ formData.hosts_number }}</td>
+    </tr>
+
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Heure de fin (si imposée par le lieu) :</th>
+        <td scope="col">{{ formData.end_event_time.hour }}h{{ formData.end_event_time.minute }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Cérémonie sur place ?</th>
+        <td scope="col">{{ formData.celebration }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Cocktail sur place ?</th>
+        <td scope="col">{{ formData.cocktail_location }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Espace de réception et piste de danse dans la même salle ?</th>
+        <td scope="col">{{ formData.diner_dancefloor_separated }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Les 2 espaces sont-ils attenants ou séparés ?</th>
+        <td scope="col">{{ formData.close_distant_spaces }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Description :</th>
+        <td scope="col">{{ formData.perf_comment }}</td>
+    </tr>
+</table>
+
+

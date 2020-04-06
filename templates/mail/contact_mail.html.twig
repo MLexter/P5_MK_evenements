@@ -1,0 +1,47 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MK EVENEMENTS - Réservation{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/mkevents.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<div id="logo_brand">
+    <img id="brand_logo" src="public/assets/images/brand/mkevents_logo.png" alt="Logo MK Evenements">
+</div>
+
+<div class="container">
+    <h1 class="text-center">CONTACT : NOUVEAU MESSAGE</h1>
+    <br>
+    <p>Bonjour,</p>
+    <p>Un nouveau message a été reçu !</p>
+
+    <h2 class="text-center">Recapitulatif de la demande</h2>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col" class="font-weight-bold">Client :</th>
+        <td scope="col">{{ contactData.last_name }} {{ contactData.first_name }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Tel :</th>
+        <td scope="col">{{ contactData.phoneNumber }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Email :</th>
+        <td scope="col">{{ contactData.email }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Message :</th>
+        <td scope="col">{{ contactData.subject }}</td>
+    </tr>
+    <tr>
+        <th scope="col" class="font-weight-bold">Message :</th>
+        <td scope="col">{{ contactData.message }}</td>
+    </tr>
+</table>
+
+

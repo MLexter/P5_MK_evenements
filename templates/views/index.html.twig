@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK Evenements: DJ - PERFORMANCE ARTISTIQUE - EQUIPEMENT AUDIOVISUEL{% endblock %}
+
+{% block body %}
+
+<div class="d-flex flex-column justify-content-center align-items-center index_background ">
+
+    <div id="main_index_titles_container">
+        <img id="index_brand_logo" src="/assets/images/brand/mkevents_logo.png" alt="Logo MK Evenements">
+
+        <div id="subtitle_main_index">
+            <h2 class="text-center main_index_title">DJ - PERFORMANCE ARTISTIQUE - EQUIPEMENT AUDIOVISUEL</h2>
+        </div>
+    </div>
+
+    <div id="about_button_link_container">
+        <button class="btn" id="discover_button_index">
+            <a href="{{ path('about') }}" id="discover_link_index">Découvrir</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

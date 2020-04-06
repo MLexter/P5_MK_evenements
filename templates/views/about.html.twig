@@ -1,0 +1,251 @@
+{% extends('base.html.twig') %}
+
+{% block title %}MK EVENEMENTS - A propos{% endblock %}
+
+{% block body %}
+
+<div class="about_background">
+
+    <div class="about_content_container">
+        <div class="page_title_container text-center">
+            <div class="jumbotron">
+                <h1 class="jumbotron_title">A PROPOS</h1>
+            </div>
+        </div>
+
+
+        <div class="bio" id="description1">
+            <p data-animate-in="fadeIn" data-animate-in-delay="100" class="text-center about_content_text">La société MK
+                ÉVÉNEMENTS est spécialisée dans l’organisation et l’animation de soirées de mariage et séminaires sur la
+                Côte d'Azur. Depuis 2005, nous avons gagné la confiance des plus grandes agences artistiques et des
+                lieux prestigieux. Notre mission est de créer un événement à votre image. De la définition de la
+                playlist musicale au choix de l'éclairage décoratif, notre objectif est de faire de ce jour unique, un
+                souvenir inoubliable pour vous et vos convives.</p>
+        </div>
+
+        <div id="about_description_container">
+            <div class="row" id="description2">
+                <div class="col-4 d-flex justify-content-center align-items-center about_description_content">
+                    <h1 class="text-center title_about" data-animate-in="up">NOS ENGAGEMENTS</h1>
+                </div>
+
+                <div class="col-8 about_description_content">
+                    <p data-animate-in="fadeIn" data-animate-in-delay="100" class="about_content_text">
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Confiance : respect de votre
+                        budget.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Transparence : honoraires
+                        clairs et précis.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Créativité : répertoire musical
+                        varié et adaptable à vos besoins.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Disponibilité : accompagnement
+                        de chaque instant.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="row" id="description3">
+                <div class="col-4 d-flex justify-content-center align-items-center about_description_content">
+                    <h1 class="text-center title_about" data-animate-in="up">NOS GARANTIES</h1>
+                </div>
+
+                <div class="col-8 about_description_content">
+                    <p data-animate-in="fadeIn" data-animate-in-delay="100" class="about_content_text">
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Une préparation personnalisée de
+                        votre événement.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Une visite du lieu de réception en
+                        amont pour éviter tout imprévu.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Du matériel de qualité
+                        professionnelle et un système d’éclairage 100% sans fil.<br>
+                        <span class="fa_check"><i class="fas fa-check"></i></span> Un contrat clair et précis vous
+                        protégeant en cas de force majeure.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="row" id="description4">
+                <div class="col-4 d-flex justify-content-center align-items-center about_description_content">
+                    <h1 class="text-center title_about" data-animate-in="up">NOTRE EQUIPE</h1>
+                </div>
+
+                <div class="col-8 about_description_content">
+                    <p data-animate-in="fadeIn" data-animate-in-delay="100" class="about_content_text">
+                        Qualifiée, créative, disponible et réactive travaille en parfaite coordination pour vous aider à
+                        faire de votre événement un succès.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center reviews_link_container">
+                <button class="btn" id="partners_link">
+                    <p data-animate-in="up" data-animate-in-delay="500" class="rounded text-center animated_partners">
+                        <i class="far fa-handshake"></i>
+                        Ils nous font confiance</p>
+                </button>
+                <a href="https://www.facebook.com/pg/mkevenements/reviews/?ref=page_internal" target="_blank">
+                    <p data-animate-in="up" data-animate-in-delay="1000" class="rounded text-center animated_reviews">
+                        <i class="far fa-thumbs-up"></i>
+                        Ils nous recommandent</p>
+                </a>
+            </div>
+        </div>
+
+        <a href="#toPartners" id="partners_scrolldown"></a>
+        <div class="about_logos_container">
+            <h1 class="text-center title_section">NOS PARTENAIRES</h1>
+            <div class="d-flex justify-content-around align-items-center flex-wrap partners_logos">
+
+                <div class="logos_section">
+                    <h1 class="text-center sub_section_title">AGENCES EVENEMENTIELLES</h1>
+                    <div class="d-flex flex-row flex-wrap justify-content-center align-items-center contains_logos">
+                        <a href="https://cannes-exhibitions.com/fr/page-daccueil-2/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/cannes_exhibition.png"
+                                alt="Cannes Exhibition" title="Cannes Exhibition">
+                        </a>
+                        <a href="http://www.madeincotedazur.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/made-in-cote-dazur.png"
+                                alt="Made in Côte d'Azur" title="Made in Côte d'Azur">
+                        </a>
+                        <a href="http://www.conciergerie-privee.fr/evenementiel/paris/bulle-tulle/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/Bulle-Tulle.jpg"
+                                alt="Bulle & Tulle" title="Bulle & Tulle">
+                        </a>
+                        <a href="https://www.weddingangels.fr/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/wedding-angels.png"
+                                alt="Wedding Angels" title="Wedding Angels">
+                        </a>
+                        <a href="https://www.nocedereve.fr/qui-sommes-nous" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/noce-de-reve.png"
+                                alt="Noce de rêve" title="Noce de rêve">
+                        </a>
+                        <a href="https://www.ekypage.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/ekypage.png" alt="Ekypage"
+                                title="Ekypage">
+                        </a>
+                        <a href="https://hypee-communication.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/hypee.jpg" alt="Hypee"
+                                title="Hypee">
+                        </a>
+                        <a href="https://www.facebook.com/Pink-Organisation-Caroline-Randu-271714599548825/"
+                            target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/pink_organisation.jpg"
+                                alt="Pink Organisation" title="Pink Organisation">
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="logos_section">
+                    <h1 class="text-center sub_section_title">DOMAINES DE RECEPTION</h1>
+                    <div class="d-flex flex-row flex-wrap justify-content-center align-items-center contains_logos">
+                        <a href="https://www.mariage-en-provence.fr/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/logo-bastide-adrets-2019.png"
+                                alt="Bastide des Adrets" title="Bastide des Adrets">
+                        </a>
+                        <a href="http://www.chateaudesselves.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/chateau-selves.png"
+                                alt="Château des Selves" title="Château des Selves">
+                        </a>
+                        <a href="https://www.chateau-fontdubroc.com/fr/mariages/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/chateau-font-du-broc.png"
+                                alt="Château Font du Broc" title="Château Font du Broc">
+                        </a>
+                        <a href="https://www.sainte-roseline.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/chateau-roseline.png"
+                                alt="Château Sainte Roseline" title="Château Sainte Roseline">
+                        </a>
+                        <a href="https://www.chateauberne.com/fr/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/chateau-berne.png"
+                                alt="Château de Berne" title="Château de Berne">
+                        </a>
+                        <a href="https://www.chateaudebellet.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/chateau-bellet.png"
+                                alt="Château de Bellet" title="Château de Bellet">
+                        </a>
+                        <a href="https://www.domaineduparadisdesoiseaux.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/domaine_oiseaux.svg"
+                                alt="Domaine des Oiseaux" title="Domaine des Oiseaux">
+                        </a>
+                        <a href="https://www.domainedebarbossi.fr/riviera-golf-de-barbossi/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/domaine-barbossi.png"
+                                alt="Domaine Barbossi" title="Domaine Barbossi">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="logos_section">
+                    <h1 class="text-center sub_section_title">PLAGES</h1>
+                    <div class="d-flex flex-row flex-wrap justify-content-center align-items-center contains_logos">
+                        <a href="https://vegaluna.fr/" target="_blank">
+                            <img class="logo_item custom_logo" src="{{ asset('assets/images/logos') }}/vegaluna.png"
+                                alt="Vegaluna" title="Vegaluna">
+                        </a>
+                        <a href="https://www.lamandala-cannes.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/mandala.jpg" alt="La Mandala"
+                                title="La Mandala">
+                        </a>
+                        <a href="https://www.314plage.com//" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/314.png" alt="3.14"
+                                title="3.14">
+                        </a>
+                        <a href="https://www.plagegoeland.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/goeland.jpg"
+                                alt="Plage Goeland" title="Plage Goeland">
+                        </a>
+                        <a href="https://www.alba-beach-cannes.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/alba.png" alt="L'alba"
+                                title="L'alba">
+                        </a>
+                        <a href="http://www.maemaplage.com/" target="_blank">
+                            <img class="logo_item custom_logo" src="{{ asset('assets/images/logos') }}/maema.png"
+                                alt="Maema Plage" title="Maema Plage">
+                        </a>
+                        <a href="https://www.restaurant-plage-cesar-antibes.fr/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/plage_keller.jpg"
+                                alt="Plage Keller" title="Plage Keller">
+                        </a>
+                        <a href="https://www.plage-festival-cannes.com/index.php/fr/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/plage_festival.png"
+                                alt="Plage du Festival" title="Plage du Festival">
+                        </a>
+                        <a href="http://www.ecrinplage.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/plage_ecrin.png"
+                                alt="Ecrin Plage" title="Ecrin Plage">
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="logos_section">
+                    <h1 class="text-center sub_section_title">HOTELS / RESTAURANTS</h1>
+                    <div class="d-flex flex-row flex-wrap justify-content-center align-items-center contains_logos">
+                        <a href="https://www.metropole.com/fr/home" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/hotel_metropole.jpg"
+                                alt="Hôtel Métropole" title="Hôtel Métropole">
+                        </a>
+                        <a href="https://lacalifornie-cannes.com/" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/californie.png"
+                                alt="Restaurant La Californie" title="Restaurant La Californie">
+                        </a>
+                        <a href="https://www.bruno-oger.com/fr/le-bistrot-des-anges.html" target="_blank">
+                            <img class="logo_item" src="{{ asset('assets/images/logos') }}/bistrot_des_anges.png"
+                                alt="Le Bistrot des Anges" title="Le Bistrot des Anges">
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

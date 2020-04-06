@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Location{% endblock %}
+
+{% block body %}
+
+<section class="mainpage">
+    <div class="page_title_container text-center">
+        <div class="jumbotron">
+            <h1 class="jumbotron_title">LOCATION</h1>
+        </div>
+    </div>
+
+    {% for message in app.flashes('success') %}
+    <h4 class="alert alert-success text-center">
+        {{ message }}
+    </h4>
+    {% endfor %}
+
+    <div class="container catalog_container">
+            <p class="text-center page_description">
+            Utilisez le filtre de recherche pour trouver le matériel dont vous avez besoin, ajoutez vos articles au panier et réservez-les ! <br>
+            </p>
+
+            <div id="pricelist_container">
+                <p class="text-center page_description">
+                Vous avez également la possibilité de télécharger directement la dernière grille tarifaire disponible.
+            </p>
+
+            </div>
+        
+            <div class="text-center mt-3 mb-3 pricelist_container">
+                <a  class="btn download_btn" href="{{ path('priceListDownload') }}">
+                    <span id="fa_download">
+                        <i class="fas fa-angle-double-down"></i>
+                        Télécharger la grille tarifaire</a>
+                    </span>
+            </div>
+        <div class="row catalog_filter_items_container">
+            <div class="col-md-4 sticky_filter_container">
+                {% if total > 0 %}
+                    <div id="cart_button">
+                        <h2 class="text-center" id="cart_title">VOTRE PANIER</h2>
+
+                        <p class="text-right mb-3">
+                            <span>{{ count }}</span> article(s)
+                        </p>
+
+                        <p class="text-right">
+                            <span class="text-right" id="cart_total_amount">{{ total }} €</span>
+                        </p>
+                        <div class="text-center">
+                            <a class="btn cart_button mt-2 mb-2" href="{{ path('cart_index') }}">
+                                <p class="text-center" id="cart_show_button">Réserver</p>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                {% endif %}
+
+                {% include 'views/_search_filter.html.twig' with {form: form} only %}
+            </div>
+
+            <div class="col-md-8 d-flex flex-wrap justify-content-center _card_content_articles">
+                {% for article in articles %}
+                    {% include 'views/_card-article.html.twig' with {article: article} only %}
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="navigation d-flex justify-content-center pagination_container">
+            {{ knp_pagination_render(articles) }}
+        </div>
+    </div>
+
+    <div class="container-cart_icon">
+        <a class="btn_check_cart" href="{{ path('cart_index') }}" title="Voir mon panier">
+            <span id="cart_icon">
+                <i class="fas fa-shopping-cart"></i>
+            </span>
+        </a>
+    </div>
+
+
+</section>
+{% endblock %}

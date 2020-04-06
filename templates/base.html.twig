@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MK EVENEMENTS - Bienvenue !{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/brand/favicon.ico') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <meta name="description"
+        content="La société MK ÉVÉNEMENTS est spécialisée dans l’organisation et l’animation de soirées de mariage et séminaires sur la Côte d'Azur. Depuis 2005, nous avons gagné la confiance des plus grandes agences artistiques et lieux prestigieux. Notre mission est de créer un événement à votre image. De la définition de la playlist musicale au choix de l'éclairage décoratif, notre objectif est de faire de ce jour unique, un souvenir inoubliable pour vous et vos convives.">
+    <meta name="keywords"
+        content="mk-evenements, evenementiel, PACA, dj, équipement, prestations artistiques, location, mariage, séminaires">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.mk-evenements.com" />
+    <meta property="og:title" content="MK EVENEMENTS - DJ - PRESTATIONS ARTISTIQUES - EQUIPEMENT AUDIOVISUEL" />
+
+    <meta property="og:image" content="../public/assets/images/brand/favicon.png" />
+    <meta property="og:site_name" content="Jean Forteroche - Le Blog de l'auteur" />
+    <meta name="twitter:card" content="summary" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Spectral|Trirong|Volkhov|Ubuntu|Fahkwang&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/mkevents.css') }}">
+    <script src="https://kit.fontawesome.com/1d4b0efeb6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/tarteaucitron/css/tarteaucitron.css">
+
+    <script type="text/javascript" src="{{ asset('tarteaucitron/tarteaucitron.js') }}"></script>
+
+    <script type="text/javascript">
+        var alreadyLaunch = 0;
+        tarteaucitron.init({
+            "privacyUrl": "", /* Privacy policy url */
+
+            "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+            "cookieName": "tarteaucitron", /* Cookie name */
+
+            "orientation": "bottom", /* Banner position (top - bottom) */
+            "showAlertSmall": false, /* Show the small banner on bottom right */
+            "cookieslist": true, /* Show the cookie list */
+
+            "adblocker": false, /* Show a Warning if an adblocker is detected */
+            "AcceptAllCta": true, /* Show the accept all button when highPrivacy on */
+            "highPrivacy": true, /* Disable auto consent */
+            "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+            "removeCredit": false, /* Remove credit link */
+            "moreInfoLink": true, /* Show more info link */
+            "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+
+            //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+
+            "readmoreLink": "/cookiespolicy" /* Change the default readmore link */
+        });
+    </script>
+
+    <script type="text/javascript">
+        tarteaucitron.user.gtagUa = 'UA-162713911-1';
+        tarteaucitron.user.gtagMore = function () { /* add here your optionnal gtag() */ };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+    </script>
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" id="logo" href="{{ path('index') }}">
+            <img id="brand_logo" src="{{ asset('assets/images/brand/mkevents_logo.png') }}" alt="Logo MK Evenements">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+            aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav mr-auto menu_list">
+
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="{{ path('index') }}">ACCUEIL <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="{{ path('about') }}">A PROPOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="/galerie">GALERIE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="{{ path('performances') }}">PRESTATIONS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="{{ path('catalogue_main') }}">LOCATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item_link" href="{{ path('contact') }}">CONTACT</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    {% block body %}{% endblock %}
+
+    <footer class="footer_container d-flex justify-content-center align-items-center">
+        {% if not app.user %}
+
+        <a class="nav-link" href="{{ path('admin_connexion') }}">
+            <img src="{{ asset('assets/images/headphones_admin_linkpng.png') }}" class="headphones_admin_icon"
+                alt="Connexion" title="Connexion">
+        </a>
+        {% else %}
+
+        <a class="nav-link admin_nav" href="{{ path('admin') }}" title="Espace Admin">ADMIN</a>
+
+        <a class="nav-link admin_nav" href="{{ path('admin_deconnexion') }}" title="Déconnexion">DECONNEXION</a>
+        {% endif %}
+
+
+        <div id="social_medias_container">
+
+            <div class="fa_socials">
+                <a id="fb_social_link" href="https://www.facebook.com/mkevenements/" target="_blank">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+            </div>
+
+            <div class="fa_socials">
+                <a id="insta_social_link" href="http://www.instagram.com" target="_blank">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    {% block javascripts %}{% endblock %}
+
+    <script src="{{ asset('assets/js/mkevents.js') }}"></script>
+    <script src="{{ asset('assets/js/onscroll-fade.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+
+</body>
+
+
+
+</html>

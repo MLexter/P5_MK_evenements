@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Connexion{% endblock %}
+
+{% block body %}
+
+
+<div id="connexion_background_container">
+    <div class="col-md-3 container" id="connex_container_form">
+
+        <div class="text-center" id="login_img_container">
+            <img id="login_icon" src="{{ asset('assets/images/login-icon.png') }}" alt="">
+        </div>
+        
+        <h1 class="text-center">CONNEXION</h1>
+
+        <form action="{{ path('admin_connexion') }}" method="post">
+            <div class="form-group">
+                <label for="connexion_user_identification" class="required">IDENTIFIANT</label>
+                <input type="text" class="form-control" required name="_username">
+            </div>
+            <div class="form-group">
+                <label for="connexion_password" class="required">MOT DE PASSE</label>
+                <input type="password" class="form-control" required name="_password">
+            </div>
+        
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        
+            <div class="form-group text-center">
+                <button type="submit" class="btn col-6" id="connexion_button">CONNEXION</button>
+            </div>
+        </form>
+        
+        {% if error %}
+            <div class="font-weight-bold">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{%endblock %}

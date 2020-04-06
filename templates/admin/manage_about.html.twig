@@ -1,0 +1,41 @@
+{% extends('base.html.twig') %}
+
+{% form_theme aboutForm 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}MK EVENTS - ADMIN: Gestion du contenu{% endblock %}
+
+{% block body %}
+
+<div class="page_title_container text-center">
+    <div class="jumbotron jumbo_admin">
+        <h1 class="jumbotron_title">GESTION DU CONTENU</h1>
+    </div>
+</div>
+
+{% include 'admin/_admin_panel.html.twig' %}
+
+<div class="mt-4 container" id="container_page">
+    <div class="page_title_container text-center">
+        <div class="container_text_admin">
+            <p class="text-center">Modifiez le texte de la page 'A propos' pour mettre à jour son contenu.</p>
+        </div>
+    </div>
+
+    <div class="edit_article_container">
+
+        {{ form_start(aboutForm) }}
+
+        {{ form_row(aboutForm.content1, { 'attr': { 'placeholder': "Entrez du contenu..."}}) }}
+        {{ form_row(aboutForm.content2, { 'attr': { 'placeholder': "Entrez du contenu..."}}) }}
+        {{ form_row(aboutForm.content3, { 'attr': { 'placeholder': "Entrez du contenu..."}}) }}
+
+
+        <button type="submit" class=" btn btn-success">Mettre à jour</button>
+
+        {{ form_end(aboutForm) }}
+
+    </div>
+
+</div>
+
+{% endblock %}

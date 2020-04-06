@@ -1,0 +1,43 @@
+<div class="card content-article">
+	<a href="{{ path('show_article', {'id': article.id}) }}">
+		<div class="img_article_container d-flex justify-content-center align-items-center">
+			<img class="card-img-top featured_image" src="{{ asset('uploads/') ~ article.image }}" alt="">
+		</div>
+
+		<div class="card-body d-flex flex-column justify-content-between body_content">
+			<div class="card-title container_card_title">
+				<p class="article_title">{{ article.title }}</p>
+
+			</div>
+
+			<div class="card-category">
+				<p class="article_category">{{ article.category.title }}</p>
+
+			</div>
+
+			<div class="card-body card_content">
+				{% if article.content | length > 80 %}
+					<p class="article_text">
+                        {{ article.content | slice(0,50) | raw }}...
+                    </p>
+				{% else %}
+					<p class="article_text">
+						{{ article.content | raw }}
+					</p>
+				{% endif %}
+			</div>
+		</div>
+		<div class="article_price">
+			<p class="price_style">{{ article.price | number_format(0, ',', ' ') }}
+				€</p>
+		</div>
+	</a>
+
+	<div class="manage-buttons">
+		<a class="btn_card" href="{{ path('cart_add', {'id': article.id}) }}">
+			<span class="fa_addtocart_icon">
+				<i class="fas fa-cart-plus"></i>
+			</span>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+<div id="admin_container_options">
+    <a href="{{ path('admin') }}">
+        <h1 id="admin_panel_title">MK EVENEMENTS ADMIN</h1>
+    </a>
+
+    <div id="admin_options_container">
+        <a class="admin_link" href="{{ path('articleCreation') }}">
+            <span class="admin_panel_link">
+                <i class="fas fa-plus-square"></i>
+            </span>
+            <h3 class="inline_admin_link">Ajouter un article</h2>
+        </a>
+
+
+        <a class="admin_link" href="{{ path('about_management') }}">
+            <span class="admin_panel_link">
+                <i class="far fa-newspaper"></i>
+            </span>
+            <h3 class="inline_admin_link">Gestion du contenu</h2>
+        </a>
+
+        <a class="admin_link" href="{{ path('catalogManagement') }}">
+            <span class="admin_panel_link">
+                <i class="fas fa-photo-video"></i>
+            </span>
+            <h3 class="inline_admin_link">Gestion du catalogue</h2>
+        </a>
+
+        <a class="admin_link" href="{{ path('manage_gallery') }}">
+            <span class="admin_panel_link">
+                <i class="fas fa-portrait"></i>
+            </span>
+            <h3 class="inline_admin_link">Gestion de la galerie</h2>
+        </a>
+
+        <a class="admin_link" href="{{ path('manage_user') }}">
+            <span class="admin_panel_link">
+                <i class="fas fa-portrait"></i>
+            </span>
+            <h3 class="inline_admin_link">Identifiants</h2>
+        </a>
+
+    </div>
+</div>

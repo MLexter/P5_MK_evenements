@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Location : {{ article.title }}{% endblock %}
+
+{% block body %}
+
+
+<div class="page_title_container text-center">
+    <div class="jumbotron">
+        <h1 class="jumbotron_title">{{ article.title }}</h1>
+    </div>
+</div>
+<div id="article_detail_container">
+    <div class="card container d-flex flex-row justify-content-around align-items-center" id="article_detail_container">
+        <div class="img_detail_article">
+            <img class="" id="article_img_data" src="{{ asset('uploads/') ~ article.image }}" alt="">
+        </div>
+
+        <div class="article_detail_content">
+            <h2 class="text-center">{{ article.title }}</h2>
+            <div class="metadata"><p class="article_category">Catégorie: {{ article.category.title }}</p></div>
+            <p class="card-text">{{ article.content | raw }}</p>
+            <h2 class="text-right detail_price">{{ article.price }} €</h2>
+
+        </div>
+
+    </div>
+    <div class="container d-flex justify-content-between align-items-center article_detail_addToCart_container">
+        <a href="{{ path('catalogue_main') }}">
+            <button class="btn return_btn">
+                Retour au catalogue
+            </button>
+        </a>
+
+        <a class="btn_card" href="{{ path('cart_add', {'id': article.id}) }}">
+            <span class="btn fa_addtocart_icon_detail">
+                <i class="fas fa-cart-plus"></i>
+                Ajouter au panier
+            </span>
+        </a>
+    </div>
+
+
+
+    <div class="container-cart_icon">
+        <a class="btn_check_cart" href="{{ path('cart_index') }}" title="Voir mon panier">
+            <span id="cart_icon">
+                <i class="fas fa-shopping-cart"></i>
+            </span>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

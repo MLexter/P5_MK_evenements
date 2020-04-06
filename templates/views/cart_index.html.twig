@@ -1,0 +1,128 @@
+{% extends('base.html.twig') %}
+
+{% block title %}MK EVENEMENTS - Panier{% endblock %}
+
+{% block body %}
+
+<div id="cart_container_part1">
+    <div class="page_title_container text-center">
+        <div class="jumbotron" id="cart_index">
+            <h1 class="jumbotron_title">VOTRE PANIER</h1>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <a href="{{ path('catalogue_main') }}">
+            <button class="mb-2 btn return_btn">
+                Retour au catalogue
+            </button>
+        </a>
+    </div>
+
+    {% if items | length > 0 %}
+    <div class="container cart_table_container">
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th id="article_head_form">Article</th>
+                    <th>Unité</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td colspan="2" class="row article_cart_main">
+                        <div class="img_thumbnail_container">
+                            <img class="thumbnail_cart_image" src="{{ asset('uploads/') ~ item.article.image }}"
+                                alt="{{ item.article.title }}">
+                        </div>
+
+                        <div class="title_article_container">
+                            <h3 class="article_title">{{ item.article.title }}</h3>
+                        </div>
+                    </td>
+
+                    <td>
+                        <h4 class="article_price_cart">{{ item.article.price }} €</h4>
+                    </td>
+
+                    <td>
+                        {% if item.quantity != 1 %}
+                        <a href="{{ path('cart_remove_one', {'id': item.article.id}) }}" title="Retirer">
+                            <button class="btn btn-light">-</button></a>
+                        {% endif %}
+                        {{ item.quantity }}
+                        <a href="{{ path('cart_add_one', {'id': item.article.id}) }}" title="Ajouter">
+                            <button class="btn btn-light">+</button></a>
+                    </td>
+
+                    <td>
+                        <h4 class="article_price_cart">{{ item.article.price * item.quantity }} €</h4>
+                    </td>
+
+                    <td>
+                        <a href="{{ path('cart_remove', {'id': item.article.id}) }}" class="btn trash_icon_link" title="Retirer l'article du panier">
+                            <span id="fa_trash_icon">
+                                <i class="far fa-trash-alt"></i>
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right total_label_text">TOTAL* : </td>
+                    <td colspan="3" class="total_amount">{{ total }} €</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="mb-3 d-flex justify-content-end clearCart_button">
+            <a href="{{ path('cart_clear') }}" class="btn clearCart_btn">Vider le panier</a>
+        </div>
+
+        <div class="cart_sub_info">
+            <em>* Le prix affiché ne tient pas compte de la durée de location.</em>
+        </div>
+
+        <br>
+
+        <div class="container text-center mt-20" id="cart_button_validation">
+            <button class="btn" id="rental_validation_button">Valider la sélection</button>
+        </div>
+
+    </div>
+
+    <div id="cart_container_part2">
+        <a href="#rental_form_section" id="rental_form_anchor"></a>
+        <div class="mx-auto border rounded" id="rental_form">
+            <h1 class="text-center">Formulaire de réservation</h1>
+            <br>
+            <p class="text-center">Renseignez les informations ci-dessous pour valider votre réservation.
+                <br>
+                Vous recevrez alors un email de confirmation.
+            </p>
+            <p class="text-center">Les informations suivies d'un ' * ' sont obligatoires.</p>
+            <br>
+
+            {% include 'views/_customer_rental_form.html.twig' with {rentalForm: rentalForm} only %}
+
+        </div>
+
+    </div>
+
+    {% else %}
+    <div class="d-flex justify-content-center align-items-center" id="empty_cart">
+        <h2 class="text-center">Votre panier est vide !</h2>
+    </div>
+
+    {% endif %}
+
+    {% endblock %}

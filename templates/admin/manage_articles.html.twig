@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion du catalogue{% endblock %}
+
+{% block body %}
+
+<section class="manage_catalog_container">
+    <div class="page_title_container text-center">
+        <div class="jumbotron jumbo_admin">
+            <h1 class="jumbotron_title">GESTION DU CATALOGUE</h1>
+        </div>
+    </div>
+
+    {% include 'admin/_admin_panel.html.twig' %}
+
+    <div class="row d-flex flex-column mx-auto priceList_upload_container">
+        {% for message in app.flashes('success') %}
+        <h4 class="alert alert-success text-center">
+            {{ message }}
+        </h4>
+        {% endfor %}
+
+        <h2 class="text-center">GRILLE TARIFAIRE</h2>
+        <div class="col-5 mx-auto pricelist_form_container">
+
+            {{ form_start(priceListForm) }}
+
+            {{ form_row(priceListForm.filename) }}
+
+            <div class="text-center">
+                <button type="submit" class="btn text-center btn_pricelist_submit">Mettre à jour</button>
+            </div>
+
+            {{ form_end(priceListForm) }}
+
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5" id="add_article_container_button">
+        <a class="btn add_article_btn" href="{{ path('articleCreation') }}">
+            <span id="fa_add_article">
+                <i class="fas fa-plus-square"></i>
+                Créer un article
+            </span>
+        </a>
+    </div>
+
+    <div class="mt-5 container container_setup">
+        <div class="row">
+            <div class="col-md-2 search_filter_container">
+                {% include 'views/_search_filter.html.twig' with {form: form} only %}
+            </div>
+
+
+            <div class="col-md-10 d-flex flex-wrap justify-content-center articles_main_container">
+                {% for article in articles %}
+
+                <div class="card content-article">
+                    <a href="{{ path('show_article', {'id': article.id}) }}">
+                        <div class="img_article_container d-flex justify-content-center align-items-center">
+                            <img class="card-img-top featured_image" src="{{ asset('uploads/') ~ article.image }}"
+                                alt="">
+                        </div>
+
+                        <div class="card-body d-flex flex-column justify-content-between body_content">
+                            <div class="card-title container_card_title">
+                                <p class="article_title">{{ article.title }}</p>
+
+                            </div>
+
+                            <div class="card-category">
+                                <p class="article_text">{{ article.category.title }}</p>
+
+                            </div>
+                            <div class="card-body card_content">
+                                <p class="article_text">
+                                    {% if article.content | length > 80 %}
+                                    {{ article.content | slice(0,60) | raw }}...
+                                    {% else %}
+                                    {{ article.content | raw }}
+                                    {% endif %}
+                                </p>
+
+                            </div>
+
+                        </div>
+                        <div class="article_price ">
+                            <p class="price_style">{{ article.price | number_format(0, ',', ' ') }} €</p>
+                        </div>
+                    </a>
+                    <div class="d-flex justify-content-around align-items-center manage_buttons_article">
+                        <a href="{{ path('articleEdit', {'id': article.id}) }}" class="btn btn-info"
+                            text="Modifier cet article"><i class="fas fa-pen"></i></a>
+                        <a href="{{ path('articleDelete', {'id': article.id}) }}" class="btn btn-primary"
+                            text="Supprimer cet article"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+        <div class="navigation d-flex justify-content-center">
+            {{ knp_pagination_render(articles) }}
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}

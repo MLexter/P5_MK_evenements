@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Validation de votre commande{% endblock %}
+
+
+{% block body %}
+
+<div class="page_title_container text-center">
+    <div class="jumbotron" id="cart_index">
+        <h1 class="jumbotron_title">VALIDATION DE VOTRE RESERVATION</h1>
+    </div>
+</div>
+
+<div class="container validation_container">
+
+    <h1 class="text-center validation">Votre réservation a été validée avec succès !</h1>
+    
+    <p class="text-center page_description">Un email récapitulatif vous a été envoyé, vérifiez votre boîte de réception !</p>
+
+    <p class="text-center font-weight-bold">
+        <a href="{{ path('index') }}">RETOUR AU SITE</a>
+    </p>
+
+    <hr>
+    
+    <h2 class="text-center">Recapitulatif de votre demande</h2>
+    <table class="table table-borderless">
+        <tr>
+            <th scope="col" class="font-weight-bold">Client :</th>
+            <td scope="col">{{ customerData.firstName }} {{ customerData.lastName }}</td>
+        </tr>
+    
+        <tr>
+            <th scope="col" class="font-weight-bold">Tel :</th>
+            <td scope="col">{{ customerData.phoneNumber }}</td>
+        </tr>
+    
+        <tr>
+            <th scope="col" class="font-weight-bold">Email :</th>
+            <td scope="col">{{ customerData.email }}</td>
+        </tr>
+    
+        <tr>
+            <th scope="col" class="font-weight-bold">Date de réservation :</th>
+            <td scope="col">{{ customerData.rentalDate }}</td>
+        </tr>
+    
+        <tr>
+            <th scope="col" class="font-weight-bold">Durée de location (en jours) :</th>
+            <td scope="col">{{ customerData.NbOfDays }}</td>
+        </tr>
+    </table>
+    
+    
+    <h2 class="text-center">VOS ARTICLES</h2>
+    
+    <table class="table table-bordered">
+        <thead>
+            <th>Article</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+        </thead>
+        {% for item in items %}
+        <tbody>
+            <tr>
+                <td><img class="thumbnail_cart_image" src="{{ asset('uploads/') ~ item.article.image }}"
+                    alt="">{{ item.article.title }} </td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.article.price }} €</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3 class="text-right">Montant provisoire: <span class="font-weight-bold total_amount">{{ totalCart }} €</span></h3> 
+</div>
+
+
+{%endblock %}

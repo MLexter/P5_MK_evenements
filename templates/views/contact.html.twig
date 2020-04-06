@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Contact{% endblock %}
+
+{% block body %}
+
+
+<div id="contact_background_container">
+    <div class="page_title_container text-center">
+        <div class="jumbotron">
+            <h1 class="jumbotron_title">CONTACT</h1>
+        </div>
+    </div>
+
+
+    <div id="contact_main_container">
+        <div class="mb-5" id="text_contact_container">
+            <p class="text-center page_description">Une question ? Une demande particulière ?
+                <br>
+                N'hésitez pas à envoyer un message en passant par le formulaire ci-dessous.
+                <br>
+                <br>
+                L'équipe de MK Evénements vous répondra dans les meilleurs délais !
+            </p>
+    
+        </div>
+    
+        <div class="container" id="contact_container">
+    
+            <h2 class="text-center mb-3 h2_contact_title">FORMULAIRE DE CONTACT</h2>
+            {{ form_start(contact_form, {'action': path('contact'), 'attr': {'id': 'form_container'} }) }}
+    
+    
+            <div class="form-row row_contact ">
+                <div class="col-6 contact_form_element">
+                    {{ form_row(contact_form.last_name) }}
+    
+                </div>
+    
+                <div class="col-6 contact_form_element">
+                    {{ form_row(contact_form.first_name) }}
+    
+                </div>
+                <div class="col-6 contact_form_element">
+                    {{ form_row(contact_form.phoneNumber) }}
+                </div>
+    
+                <div class="col-6 contact_form_element">
+                    {{ form_row(contact_form.email) }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    {{ form_row(contact_form.subject) }}
+                </div>
+            </div>
+    
+            <div class="">
+                {{ form_row(contact_form.message) }}
+            </div>
+    
+            <div class="form-group text-center">
+                <button type="submit" class="btn submit_contact" id="contactForm">Envoyer la demande</button>
+            </div>
+        </div>
+    
+    
+        {{form_end(contact_form) }}
+    </div>
+
+    </div>
+
+
+</div>
+
+{%endblock %}

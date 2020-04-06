@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Prestations{% endblock %}
+
+
+{% block body %}
+
+<div class="page_title_container text-center">
+    <div class="jumbotron">
+        <h1 class="jumbotron_title">PRESTATIONS</h1>
+
+    </div>
+</div>
+
+
+<div class="performances_container">
+    {% for message in app.flashes('success') %}
+        <h4 class="alert alert-success text-center">
+            {{ message }}
+        </h4>
+    {% endfor %}
+    
+<h1 class="text-center mb-4 performances_sub_content">Une organisation sur mesure pour votre événement !</h1>
+    <div id="body_text_performance">
+
+        <p class="text-center page_description">
+            <span class="font-weight-bold">MK Evénéments</span> met tout en oeuvre pour vous proposer un événément unique.
+            <br>
+            Pour cerner au mieux vos besoins pour l'organisation de votre événement (mariage,
+            cocktail, événement privée, ...), répondez au questionnaire suivant et obtenez un devis de prestation.
+        <br>
+        <br>
+        <p class="text-center mx-auto page_description">L'équipe de MK Evénement prendra alors contact prochainement avec vous afin de vous
+            apporter une solution sur mesure !
+        </p>
+    </div>
+
+
+    <div class="container_performances_form">
+        <h2 class="text-center h2_perf_title">VOS COORDONNEES</h2>
+        {{ form_start(performance_form, {'action': path('performances'), 'attr': {'id': 'form_container'} }) }}
+
+
+        <div class="form-row row_performances ">
+            <div class="col-6 performances_contact_info_element">
+                {{ form_row(performance_form.last_name) }}
+
+            </div>
+
+            <div class="col-6 performances_contact_info_element">
+                {{ form_row(performance_form.first_name) }}
+
+            </div>
+            <div class="col-6 performances_contact_info_element">
+                {{ form_row(performance_form.phoneNumber) }}
+            </div>
+
+            <div class="col-6 performances_contact_info_element">
+                {{ form_row(performance_form.email) }}
+            </div>
+        </div>
+
+        <h2 class="text-center h2_perf_title">VOTRE EVENEMENT</h2>
+
+
+        <div class="form-row row_event ">
+            <div class="col-3 text-center row_event_content">
+                {{ form_row(performance_form.event_type) }}
+
+            </div>
+
+            <div class="col-4 text-center row_event_content">
+                {{ form_row(performance_form.location_name) }}
+
+            </div>
+
+            <div class="col-4 text-center event-date-form row_event_content">
+                {{ form_row(performance_form.event_date) }}
+            </div>
+
+        </div>
+
+
+        <h2 class="text-center h2_perf_title">QUESTIONS SPECIFIQUES</h2>
+
+        <div class="form-row specifics_container">
+            <div class="col-6 specific_content">
+                {{ form_row(performance_form.celebration) }}
+                {{ form_row(performance_form.cocktail_location) }}
+
+            </div>
+
+            <div class="col-6 specific_content">
+                {{ form_row(performance_form.diner_dancefloor_separated) }}
+                {{ form_row(performance_form.close_distant_spaces) }}
+
+
+            </div>
+
+
+        </div>
+
+        <div class="form-row even_date">
+
+
+            <div class="col-6 specific_content">
+                {{ form_row(performance_form.end_event_time) }}
+
+            </div>
+
+            <div class="col-2 specific_content" id="hosts_number_container">
+                {{ form_row(performance_form.hosts_number) }}
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="text-center">
+            {{ form_row(performance_form.perf_comment) }}
+
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn submit_perf">Envoyer la demande</button>
+        </div>
+        {{ form_end(performance_form) }}
+
+    </div>
+
+
+</div>
+</div>
+
+{%endblock %}

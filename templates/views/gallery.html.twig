@@ -1,0 +1,71 @@
+{% extends('base.html.twig') %}
+
+{% block title %}MK EVENEMENTS - Galerie{% endblock %}
+
+{% block body %}
+
+<div class="text-center page_title_container">
+  <div class="jumbotron">
+    <h1 class="jumbotron_title">GALERIE</h1>
+  </div>
+
+  <div class="mt-5 mb-5" id="gallery_main_container">
+
+    {% for image in images %}
+    <a href="#" class="pop">
+      <img class="img_gallery_item" src="{{ asset('uploads/') ~ image.images }}" alt="Galerie photo">
+    </a>
+    {% else %}
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 class="text-center">Aucune image dans cette galerie !</h1>
+    </div>
+    {% endfor %}
+
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true" id="close_btn">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <img src="" class="imagepreview" style="width: 100%;" alt="Image de la galerie">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="promo_videos_container">
+
+    <h2 class="text-center mt-2" id="video_gallery_title">VIDEOS</h2>
+
+    <div class="row d-flex justify-content-center" id="movies_container">
+      <div class="movie_item">
+        <video width="560" height="315" controls>
+          <source src="{{ asset('uploads/') }}mkevents_movie.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas cette vidéo.
+        </video>
+      </div>
+
+      <div class="movie_item">
+        <video width="560" height="315" controls>
+          <source src="{{ asset('uploads/') }}mkevents_wedding_party.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas cette vidéo.
+        </video>
+      </div>
+
+      <div class="movie_item">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/lY6YHALf1Aw" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

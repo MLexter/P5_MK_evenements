@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MK EVENEMENTS - Réservation{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/mkevents.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<div id="logo_brand">
+    <img id="brand_logo" src="public/assets/images/brand/mkevents_logo.png" alt="Logo MK Evenements">
+</div>
+
+<div class="container">
+    <h1 class="text-center">NOUVELLE DEMANDE DE LOCATION</h1>
+    <br>
+    <p>Bonjour,</p>
+    <p>Une nouvelle demande de réservation a été faite.</p>
+
+    <h2 class="text-center">Recapitulatif de la demande</h2>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col" class="font-weight-bold">Client :</th>
+        <td scope="col">{{ customerData.lastName }} {{ customerData.firstName }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Tel :</th>
+        <td scope="col">{{ customerData.phoneNumber }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Email :</th>
+        <td scope="col">{{ customerData.email }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Date de réservation :</th>
+        <td scope="col">{{ customerData.rentalDate }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Durée de location (en jours) :</th>
+        <td scope="col">{{ customerData.NbOfDays }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Message :</th>
+        <td scope="col">{{ customerData.customerMessage }}</td>
+    </tr>
+</table>
+
+
+<h2 class="text-center">Articles réservés</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <th>Article</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+    </thead>
+    {% for item in items %}
+    <tbody>
+        <tr>
+            <td>{{ item.article.title }} </td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.article.price }} €</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3 class="text-right">Montant provisoire: <span class="font-weight-bold">{{ totalCart }} €</span></h3> 
+

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MK EVENEMENTS - Modifier les identifiants{% endblock %}
+
+{% block body %}
+
+{% include 'admin/_admin_panel.html.twig' %}
+
+<div class="page_title_container text-center">
+    <div class="jumbotron jumbo_admin">
+        <h1 class="jumbotron_title">GESTION DU MOT DE PASSE</h1>
+    </div>
+</div>
+
+<div class="password_manager_container">
+
+    <p class="text-center mt-5 page_description mq_text_content">Pour modifier le mot de passe actuel, remplissez le formulaire ci-dessous.</p>
+    <div id="modify_admin_background_container">
+        <div class="container" id="modify_admin_container_form">
+    
+    
+    
+            <div class="container">
+                <h2 class="text-center">MODIFICATION DU MOT DE PASSE</h2>
+                {% for message in app.flashes('notice') %}
+                <h4 class="alert alert-success text-center">
+                    {{ message }}
+                </h4>
+                {% endfor %}
+    
+                {{ form_start(adminForm, {'action': path('change_password')}) }}
+    
+                {{ form_row(adminForm.old_password) }}
+                {{ form_row(adminForm.plainPassword) }}
+    
+                <button class="btn btn_pwd" type="submit">Confirmer</button>
+                {{ form_end(adminForm) }}
+            </div>
+    
+    
+        </div>
+    
+    
+    </div>
+</div>
+
+
+{%endblock %}
