@@ -17,6 +17,10 @@ th, td {
     text-align: center;
 }
 
+li {
+    font-size: 16px;
+}
+
 .navbar-nav .nav-link:hover {
     color: red;
 }
@@ -239,7 +243,7 @@ ul.navbar-nav.mr-auto.menu_list {
 a.nav-link.admin_nav {
     color: red!important;
     font-weight: bold;
-    font-size: 15px!important;
+    font-size: 13px!important;
 }
 
 a.nav-link.admin_nav:hover {
@@ -335,6 +339,28 @@ a.btn_card {
 
 a.btn_card:hover {
     color: black;
+}
+
+
+/* ##### LEGAL NOTICE ##### */
+
+.container.legal_notice_container {
+    margin-bottom: 10vh;
+}
+
+div#legal_webmaster_container {
+    display: flex;
+    justify-content: space-between;
+    width: 27vh;
+    align-items: center;
+}
+
+a#legal_notice_link {
+    font-size: 12px!important;
+}
+
+.webmaster_link {
+    font-size: 11px!important;
 }
 
 /* CART MAIN PAGE */
@@ -1077,7 +1103,7 @@ button.btn.btn_pwd:hover {
 /* ##### ADMIN MAIN PAGE ##### */
 
 div#main_admin_container {
-    min-height: 64vh;
+    min-height: 65vh;
     background-color: #a2b0c0;
 }
 
@@ -1141,12 +1167,17 @@ div#main_admin_container {
         height: 15px;
     }
     i.fab.fa-facebook-square, i.fab.fa-instagram-square {
-        font-size: 15px;
+        font-size: 16px;
     }
     i.fab.fa-facebook-square {
         margin-left: 5px;
         margin-right: 5px;
     }
+
+    div#legal_webmaster_container {
+        width: 68vh;
+    }
+
     /* ##### ABOUT ##### */
     h1.jumbotron_title {
         font-size: 1.5rem;
@@ -1335,7 +1366,9 @@ div#main_admin_container {
 
 /* ##### ADMIN MAINPAGE ##### */
 
-
+div#main_admin_container {
+    min-height: 69vh!important;
+}
 h1#admin_panel_title {
     font-size: 25px;
 }
@@ -1405,6 +1438,18 @@ div#main_admin_container {
     i.fab.fa-facebook-square, i.fab.fa-instagram-square {
         font-size: 20px;
     }
+
+    div#legal_notice {
+        line-height: 15px;
+    }
+
+    div#legal_webmaster_container {
+        flex-direction: column;
+        justify-content: center!important;
+            
+    }
+
+
     /* ##### MAIN INDEX PAGE ##### */
     h2.text-center.main_index_title {
         font-size: 1rem;
@@ -1644,6 +1689,8 @@ div#main_admin_container {
     button.btn.valid_btn {
         font-size: 14px!important;
     }
+
+
     /* ##### CONTACT ##### */
 
     div#text_contact_container {
@@ -1659,13 +1706,18 @@ div#main_admin_container {
     button#contactForm {
         font-size: 14px!important;
     }
+
+
     /* ##### ADMIN MAIN ##### */
     .jumbotron.jumbo_admin {
         margin-bottom: 0!important;
     }
     a.nav-link.admin_nav {
         font-size: 12px!important;
+        padding: 0.3rem!important;
     }
+
+
     /* ##### Menu Panel ##### */
     h1#admin_panel_title {
         font-size: 17px;

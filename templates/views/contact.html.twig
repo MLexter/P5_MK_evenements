@@ -14,6 +14,11 @@
 
 
     <div id="contact_main_container">
+        {% for message in app.flashes('success') %}
+        <h4 class="alert alert-success text-center">
+            {{ message }}
+        </h4>
+    {% endfor %}
         <div class="mb-5" id="text_contact_container">
             <p class="text-center page_description">Une question ? Une demande particulière ?
                 <br>

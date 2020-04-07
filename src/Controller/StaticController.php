@@ -120,20 +120,20 @@ class StaticController extends AbstractController
 
             foreach ($request->request->get('performances') as $key => $value) {
                 $formData = [
-                    'last_name' => htmlspecialchars($request->request->get('performances')['last_name']),
-                    'first_name' => htmlspecialchars($request->request->get('performances')['first_name']),
-                    'phoneNumber' => htmlspecialchars($request->request->get('performances')['phoneNumber']),
-                    'email' => htmlspecialchars($request->request->get('performances')['email']),
-                    'event_type' => htmlspecialchars($request->request->get('performances')["event_type"]),
-                    'location_name' => htmlspecialchars($request->request->get('performances')["location_name"]),
+                    'last_name' => $request->request->get('performances')['last_name'],
+                    'first_name' => $request->request->get('performances')['first_name'],
+                    'phoneNumber' => $request->request->get('performances')['phoneNumber'],
+                    'email' => $request->request->get('performances')['email'],
+                    'event_type' => $request->request->get('performances')["event_type"],
+                    'location_name' => $request->request->get('performances')["location_name"],
                     'event_date' => $request->request->get('performances')["event_date"],
-                    'hosts_number' => htmlspecialchars($request->request->get('performances')["hosts_number"]),
+                    'hosts_number' => $request->request->get('performances')["hosts_number"],
                     'end_event_time' => $request->request->get('performances')["end_event_time"],
-                    'celebration' => htmlspecialchars($request->request->get('performances')["celebration"]),
-                    'cocktail_location' => htmlspecialchars($request->request->get('performances')["cocktail_location"]),
-                    'diner_dancefloor_separated' => htmlspecialchars($request->request->get('performances')["diner_dancefloor_separated"]),
-                    'close_distant_spaces' => htmlspecialchars($request->request->get('performances')["close_distant_spaces"]),
-                    'perf_comment' => htmlspecialchars($request->request->get('performances')["perf_comment"])
+                    'celebration' => $request->request->get('performances')["celebration"],
+                    'cocktail_location' => $request->request->get('performances')["cocktail_location"],
+                    'diner_dancefloor_separated' => $request->request->get('performances')["diner_dancefloor_separated"],
+                    'close_distant_spaces' => $request->request->get('performances')["close_distant_spaces"],
+                    'perf_comment' => $request->request->get('performances')["perf_comment"]
                 ];
             }
 
@@ -181,6 +181,8 @@ class StaticController extends AbstractController
 
             $mailer->send($mail);
             $this->addFlash('success', 'Votre formulaire a bien été envoyé !');
+
+            return $this->redirectToRoute('performances');
         }
 
         return $this->render('views/prestations.html.twig', [
@@ -204,12 +206,12 @@ class StaticController extends AbstractController
         if ($contact_form->isSubmitted() && $contact_form->isValid()) {
             foreach ($_POST["contact"] as $key => $value) {
                 $contactData = [
-                    'last_name' => htmlspecialchars($_POST["contact"]['last_name']),
-                    'first_name' => htmlspecialchars($_POST["contact"]['first_name']),
-                    'phoneNumber' => htmlspecialchars($_POST["contact"]['phoneNumber']),
-                    'email' => htmlspecialchars($_POST["contact"]['email']),
-                    'subject' => $_POST["contact"]['subject'],
-                    'message' => htmlspecialchars($_POST["contact"]["message"])
+                    'last_name' => $request->request->get("contact")['last_name'],
+                    'first_name' => $request->request->get("contact")['first_name'],
+                    'phoneNumber' => $request->request->get("contact")['phoneNumber'],
+                    'email' => $request->request->get("contact")['email'],
+                    'subject' => $request->request->get("contact")['subject'],
+                    'message' => $request->request->get("contact")["message"]
                 ];
             }
             // Création du mail à envoyer
@@ -228,10 +230,25 @@ class StaticController extends AbstractController
             );
 
             $mailer->send($mail);
+
+            $this->addFlash('success', 'Votre formulaire a bien été envoyé !');
+
+            return $this->redirectToRoute('contact');
         }
 
         return $this->render('views/contact.html.twig', [
             'contact_form' => $contact_form->createView()
         ]);
     }
+
+    /**
+     * @Route("/mentions-legales", name="legal_notice")
+     *
+     * @return void
+     */
+    public function showLegalNotice() 
+    {
+        return $this->render('views/legal_notice.html.twig');
+    }
+
 }

@@ -113,35 +113,53 @@
 
     {% block body %}{% endblock %}
 
-    <footer class="footer_container d-flex justify-content-center align-items-center">
-        {% if not app.user %}
+    <footer class="d-flex justify-content-around footer_container">
+        
+        <div id="footer_main_infos" class="d-flex justify-content-center align-items-center">
+            {% if not app.user %}
+            <a class="nav-link" href="{{ path('admin_connexion') }}">
+                <img src="{{ asset('assets/images/headphones_admin_linkpng.png') }}" class="headphones_admin_icon"
+                    alt="Connexion" title="Connexion">
+            </a>
+            {% else %}
 
-        <a class="nav-link" href="{{ path('admin_connexion') }}">
-            <img src="{{ asset('assets/images/headphones_admin_linkpng.png') }}" class="headphones_admin_icon"
-                alt="Connexion" title="Connexion">
-        </a>
-        {% else %}
+            <a class="nav-link admin_nav" href="{{ path('admin') }}" title="Espace Admin">ADMIN</a>
 
-        <a class="nav-link admin_nav" href="{{ path('admin') }}" title="Espace Admin">ADMIN</a>
-
-        <a class="nav-link admin_nav" href="{{ path('admin_deconnexion') }}" title="Déconnexion">DECONNEXION</a>
-        {% endif %}
+            <a class="nav-link admin_nav" href="{{ path('admin_deconnexion') }}" title="Déconnexion">DECONNEXION</a>
+            {% endif %}
 
 
-        <div id="social_medias_container">
+            <div id="social_medias_container">
 
-            <div class="fa_socials">
-                <a id="fb_social_link" href="https://www.facebook.com/mkevenements/" target="_blank">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
+                <div class="fa_socials">
+                    <a id="fb_social_link" href="https://www.facebook.com/mkevenements/" alt="Facebook" title="Facebook"
+                        target="_blank">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </div>
+
+                <div class="fa_socials">
+                    <a id="insta_social_link" href="http://www.instagram.com" alt="Instagram" title="Instagram"
+                        target="_blank">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="fa_socials">
-                <a id="insta_social_link" href="http://www.instagram.com" target="_blank">
-                    <i class="fab fa-instagram-square"></i>
-                </a>
+        </div>
+
+        <div id="legal_webmaster_container">
+            <div id="legal_notice">
+                <a id="legal_notice_link" href="{{ path('legal_notice') }}" alt="Mentions Légales"
+                    title="Mentions Légales">Mentions Légales</a>
+            </div>
+            <div id="webmaster">
+                <p class="webmaster_link">
+                    Powered by <a class="webmaster_link" href="mailto:morgan.lexter@gmail.com">Lexter</a>
+                </p>
             </div>
         </div>
+
     </footer>
 
     {% block javascripts %}{% endblock %}

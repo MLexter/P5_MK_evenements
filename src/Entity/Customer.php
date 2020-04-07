@@ -2,16 +2,36 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class Customer {
 
 
     private $lastName;
+    
+    
     private $firstName;
+    
+    /**
+     *
+     * @var [type]
+     */
     private $phoneNumber;
+    
+    
     private $email;
+    
+    
     private $customerMessage;
+
+    /**
+     *
+     * @var [type]
+     */
     private $rentalDate;
+    
+    
     private $nbOfDays;
 
     
