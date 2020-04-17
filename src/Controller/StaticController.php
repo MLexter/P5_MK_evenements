@@ -128,16 +128,29 @@ class StaticController extends AbstractController
                     'location_name' => $request->request->get('performances')["location_name"],
                     'event_date' => $request->request->get('performances')["event_date"],
                     'hosts_number' => $request->request->get('performances')["hosts_number"],
+                    'start_event_time' => $request->request->get('performances')["start_event_time"],
                     'end_event_time' => $request->request->get('performances')["end_event_time"],
                     'celebration' => $request->request->get('performances')["celebration"],
                     'cocktail_location' => $request->request->get('performances')["cocktail_location"],
                     'diner_dancefloor_separated' => $request->request->get('performances')["diner_dancefloor_separated"],
-                    'close_distant_spaces' => $request->request->get('performances')["close_distant_spaces"],
                     'perf_comment' => $request->request->get('performances')["perf_comment"]
                 ];
             }
 
             // Formatage de l'heure
+
+            // Heure de début
+            if ($formData["start_event_time"]["hour"] >= 0 && $formData["start_event_time"]["hour"] <= 9) {
+                $zero = 0;
+                $formData["start_event_time"]["hour"] = $zero . $formData["start_event_time"]["hour"];
+            }
+
+            if ($formData["start_event_time"]["minute"] >= 0 && $formData["start_event_time"]["minute"] <= 9) {
+                $zero = 0;
+                $formData["start_event_time"]["minute"] = $zero . $formData["start_event_time"]["minute"];
+            }
+
+            // Heure de fin
             if ($formData["end_event_time"]["hour"] >= 0 && $formData["end_event_time"]["hour"] <= 9) {
                 $zero = 0;
                 $formData["end_event_time"]["hour"] = $zero . $formData["end_event_time"]["hour"];

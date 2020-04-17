@@ -513,7 +513,7 @@ label {
 
 legend.col-form-label.required {
     font-family: 'Ubuntu';
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .col-4.text-center.event-date-form {
@@ -542,6 +542,10 @@ button.btn.btn-outline-primary.submit_perf {
 
 .form-row.row_event {
     justify-content: space-between;
+}
+
+div#start_time_element {
+    margin-right: 7vh;
 }
 
 button.btn.submit_perf {
@@ -1103,7 +1107,7 @@ button.btn.btn_pwd:hover {
 /* ##### ADMIN MAIN PAGE ##### */
 
 div#main_admin_container {
-    min-height: 65vh;
+    min-height: 65vh!important;
     background-color: #a2b0c0;
 }
 
@@ -1291,8 +1295,15 @@ div#main_admin_container {
     .form-row.even_date {
         flex-direction: column;
     }
+    .d-flex.event_time_container {
+        display: block!important;
+    }
     select#performances_end_event_time_hour, select#performances_end_event_time_minute {
         width: 25%;
+    }
+
+    select#performances_start_event_time_hour, select#performances_start_event_time_minute {
+        width: 26%;
     }
     div#hosts_number_container {
         max-width: 40%;
@@ -1367,7 +1378,9 @@ div#main_admin_container {
 /* ##### ADMIN MAINPAGE ##### */
 
 div#main_admin_container {
-    min-height: 69vh!important;
+    min-height: 65vh!important;
+    margin-bottom: 6vh;
+
 }
 h1#admin_panel_title {
     font-size: 25px;
@@ -1379,9 +1392,6 @@ h3.inline_admin_link {
 
 span.admin_panel_link {
     font-size: 16px;
-}
-div#main_admin_container {
-    margin-bottom: 6vh;
 }
 
 .manage_buttons_article {
@@ -1578,8 +1588,14 @@ div#main_admin_container {
     .form-row.even_date {
         flex-direction: column;
     }
+    .d-flex.event_time_container {
+        display: block!important;
+    }
     select#performances_end_event_time_hour, select#performances_end_event_time_minute {
         width: 25%;
+    }
+    select#performances_start_event_time_hour, select#performances_start_event_time_minute {
+        width: 30%;
     }
     div#hosts_number_container {
         max-width: 40%;

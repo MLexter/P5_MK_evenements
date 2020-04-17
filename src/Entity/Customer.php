@@ -14,8 +14,11 @@ class Customer {
     private $firstName;
     
     /**
-     *
-     * @var [type]
+     *@Assert\Regex(
+         pattern="/^0[1-9]{9}$/",
+         match=false,
+         message="Erreur dans la saisie")
+     *@ORM\Column(type="string", length=10)
      */
     private $phoneNumber;
     

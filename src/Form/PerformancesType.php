@@ -38,11 +38,10 @@ class PerformancesType extends AbstractType
         ])
         ->add('event_type', ChoiceType::class, [
             'choices' => array(
+                    'Séminaire d\'entreprise' => 'Séminaire d\'entreprise',
                     'Mariage' => 'Mariage',
                     'Anniversaire' => 'Anniversaire',
-                    'Evénement privé' => 'Evénement privé',
                     'Evénement public' => 'Evénement public',
-                    'Evénement d\'entreprise' => 'Evénement d\'entreprise',
                     'Autre' => 'Autre'
             ),
             'placeholder' => '-- Choisissez --',
@@ -63,11 +62,15 @@ class PerformancesType extends AbstractType
                 ]
             ])
             ->add('hosts_number', IntegerType::class, [
-                'label' => 'Nombre d\'invités',
+                'label' => 'Nombre de convives',
                 'required' => true
             ])
+            ->add('start_event_time', TimeType::class, [
+                'label' => 'Heure de début',
+                'input' => 'string'
+            ])
             ->add('end_event_time', TimeType::class, [
-                'label' => 'Heure de fin de l\'événement',
+                'label' => 'Heure de fin',
                 'input' => 'string'
             ])
 
@@ -85,6 +88,8 @@ class PerformancesType extends AbstractType
             ->add('cocktail_location', ChoiceType::class, [
                 'choices' => array(
                     'Oui' => 'Oui',
+                    'Oui et attenant à l\'espace cérémonie (moins de 30m)' => 'Oui et attenant à l\'espace cérémonie (moins de 30m)',
+                    'Oui et séparé de l\'espace cérémonie' => 'Oui et séparé de l\'espace cérémonie',
                     'Non' => 'Non'
                 ),
                 'label' => 'Un cocktail se déroulera t-il sur place ?',
@@ -94,24 +99,15 @@ class PerformancesType extends AbstractType
             ->add('diner_dancefloor_separated', ChoiceType::class, [
                 'choices' => array(
                     'Oui' => 'Oui',
-                    'Non' => 'Non'
+                    'Non mais elle est attenante à l\'espace dîner' => 'Non mais elle est attenante à l\'espace dîner',
+                    'Non, elle est complètement séparée de l\'espace dîner' => 'Non, elle est complètement séparée de l\'espace dîner'
                 ),
-                'label' => 'L\'espace de réception et la piste de danse sont-ils dans la même salle ?',
-                'multiple' => false,
-                'expanded' => true
-            ])
-            ->add('close_distant_spaces', ChoiceType::class, [
-                'choices' => array(
-                    'Attenants' => 'Attenants',
-                    'Séparés' => 'Séparés',
-                    'Non concerné' => 'Non concerné'
-                ),
-                'label' => 'Les 2 espaces sont-ils attenants ou complètement séparés ?',
+                'label' => 'La piste de danse se trouve t-elle dans le même espace que le dîner ?',
                 'multiple' => false,
                 'expanded' => true
             ])
             ->add('perf_comment', TextareaType::class, [
-                'label' => 'Pour pouvoir vous apporter une solution sur mesure, décrivez-nous l\'événement en quelques lignes :',
+                'label' => 'Information(s) complémentaire(s) ou demande(s) spécifique(s) :',
                 'attr' => array(
                     'rows' => 6,
                 ),

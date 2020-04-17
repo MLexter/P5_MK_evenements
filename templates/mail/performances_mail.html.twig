@@ -59,7 +59,12 @@
 
 
     <tr>
-        <th scope="col" class="font-weight-bold">Heure de fin (si imposée par le lieu) :</th>
+        <th scope="col" class="font-weight-bold">Heure de début :</th>
+        <td scope="col">{{ formData.start_event_time.hour }}h{{ formData.start_event_time.minute }}</td>
+    </tr>
+
+    <tr>
+        <th scope="col" class="font-weight-bold">Heure de fin :</th>
         <td scope="col">{{ formData.end_event_time.hour }}h{{ formData.end_event_time.minute }}</td>
     </tr>
 
@@ -74,13 +79,8 @@
     </tr>
 
     <tr>
-        <th scope="col" class="font-weight-bold">Espace de réception et piste de danse dans la même salle ?</th>
+        <th scope="col" class="font-weight-bold">La piste de danse se trouve t-elle dans le même espace que le dîner ?</th>
         <td scope="col">{{ formData.diner_dancefloor_separated }}</td>
-    </tr>
-
-    <tr>
-        <th scope="col" class="font-weight-bold">Les 2 espaces sont-ils attenants ou séparés ?</th>
-        <td scope="col">{{ formData.close_distant_spaces }}</td>
     </tr>
 
     <tr>

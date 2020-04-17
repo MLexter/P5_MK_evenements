@@ -20,18 +20,13 @@
         </h4>
     {% endfor %}
     
-<h1 class="text-center mb-4 performances_sub_content">Une organisation sur mesure pour votre événement !</h1>
     <div id="body_text_performance">
-
         <p class="text-center page_description">
-            <span class="font-weight-bold">MK Evénéments</span> met tout en oeuvre pour vous proposer un événément unique.
-            <br>
-            Pour cerner au mieux vos besoins pour l'organisation de votre événement (mariage,
-            cocktail, événement privée, ...), répondez au questionnaire suivant et obtenez un devis de prestation.
+            Afin de cerner au mieux vos besoins techniques et artistiques pour l'organisation de votre événement, répondez au questionnaire suivant et obtenez rapidement un devis de prestation.
         <br>
         <br>
-        <p class="text-center mx-auto page_description">L'équipe de MK Evénement prendra alors contact prochainement avec vous afin de vous
-            apporter une solution sur mesure !
+        <p class="text-center mx-auto page_description">L'équipe de MK Evénement prendra contact avec vous afin de vous
+            apporter une solution sur mesure.
         </p>
     </div>
 
@@ -92,8 +87,6 @@
 
             <div class="col-6 specific_content">
                 {{ form_row(performance_form.diner_dancefloor_separated) }}
-                {{ form_row(performance_form.close_distant_spaces) }}
-
 
             </div>
 
@@ -104,11 +97,16 @@
 
 
             <div class="col-6 specific_content">
-                {{ form_row(performance_form.end_event_time) }}
+                <div class="d-flex event_time_container">
+                    <div id="start_time_element">
+                        {{ form_row(performance_form.start_event_time) }}
+                    </div>
+                    {{ form_row(performance_form.end_event_time) }}
+                </div>
 
             </div>
 
-            <div class="col-2 specific_content" id="hosts_number_container">
+            <div class="col-3 specific_content" id="hosts_number_container">
                 {{ form_row(performance_form.hosts_number) }}
 
             </div>

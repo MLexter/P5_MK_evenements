@@ -95,22 +95,25 @@ class CartController extends AbstractController
     /**
      *@Route("/panier/envoi-reservation", name="rental_validation")
      */
-    public function rentalValidation(CartFunctions $cartFunctions, Swift_Mailer $mailer)
+    public function rentalValidation(CartFunctions $cartFunctions, Swift_Mailer $mailer, Request $request)
     {
         $rental_date_regex = "#^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$#";
         $phone_regex = "#^[0-9-+.]{10,15}$#";
         
+
         
-        if (!preg_match($phone_regex, $_POST["rental"]['phoneNumber']))
+        if (!preg_match($phone_regex, $request->request->get('rental')["phoneNumber"]))
         {    
-            dd('Le numéro de téléphone saisi n\est pas valide !');
+            dd('Le numéro de téléphone saisi n\'est pas valide !');
             
         } elseif (!preg_match($rental_date_regex, $_POST["rental"]['rentalDate']))
         {
-            dd('La date n\'est pas valide !');
+            dd('la date saisie n\'est pas valide !');
+            
             
         } else {
-
+            dd($request->request->get('rental')["phoneNumber"]);
+            
             $customerData = $cartFunctions->retrieveCustomerData();
 
             // Création du mail à envoyer au client
